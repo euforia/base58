@@ -32,6 +32,11 @@ func Encode(input []byte) []byte {
 	return result
 }
 
+// EncodeToString encodes the input and returns the encoded string
+func EncodeToString(input []byte) string {
+	return string(Encode(input))
+}
+
 // Decode decodes Base58-encoded data
 func Decode(input []byte) []byte {
 	result := big.NewInt(0)
@@ -49,6 +54,11 @@ func Decode(input []byte) []byte {
 	}
 
 	return decoded
+}
+
+// DecodeFromString returns the decoded input string
+func DecodeFromString(str string) []byte {
+	return Decode([]byte(str))
 }
 
 // reverseBytes reverses a byte array
